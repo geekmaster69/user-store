@@ -35,7 +35,6 @@ export class CategoryService {
 
         const { page, limit } = paginationDto;
 
-
         try {
 
             const [total, categories] = await Promise.all([
@@ -58,11 +57,6 @@ export class CategoryService {
                     available: category.available
                 }))
             }
-
-
-
-
-
         } catch (error) {
             throw CustomError.internalServer(`${error}`);
 

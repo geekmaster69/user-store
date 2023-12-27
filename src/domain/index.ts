@@ -5,3 +5,4 @@ export * from './dtos/category/create-category.dto';
 export * from './entities/user.entity';
 export * from './errors/custom.error';
 export * from './shared/pagination.dto';
+export * from './dtos/products/create_product.dto'
