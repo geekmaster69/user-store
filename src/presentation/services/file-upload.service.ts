@@ -18,6 +18,8 @@ export class FileUploadService {
 
     private checkFolder(folderPath: string) {
 
+
+
         if (!fs.existsSync(folderPath)) {
             fs.mkdirSync(folderPath);
 
@@ -41,6 +43,8 @@ export class FileUploadService {
 
             }
             const destination = path.resolve(__dirname, '../../../', folder);
+            const uploadFolder = path.resolve(__dirname, '../../../uploads');
+            this.checkFolder(uploadFolder);
             this.checkFolder(destination);
 
             const fileName = `${this.uuid()}.${fileExtension}`;
@@ -66,7 +70,7 @@ export class FileUploadService {
         files: UploadedFile[],
         folder: string = 'uploads',
         validExtensions: string[] = ['png', 'jpg', 'jpeg', 'gif']
-    ) { 
+    ) {
 
         const filesNames = await Promise.all(
             files.map(file => this.uploadSingle(file, folder, validExtensions))
